@@ -1,0 +1,24 @@
+{
+  "name": "tailtidy",
+  "version": "1.0.0",
+  "description": "TailwindCSS utility to help organize the classes.",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "danvc/tailtidy",
+  "keywords": [
+    "tailwindcss",
+    "classes",
+    "classesnames",
+    "organization",
+    "organize",
+    "structured",
+    "styled"
+  ],
+  "author": {
+    "name": "Daniel Vieira Costa",
+    "url": "https://angel.co/danvc"
+  },
+  "license": "ISC"
+}
