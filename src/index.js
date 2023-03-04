@@ -19,12 +19,12 @@ function tidyUp(obj) {
 
     if (typeof value === "object") {
       // Recursively call the function if the value is an object
-      const subValues = getAllPropertyValues(value);
+      const subValues = tidyUp(value);
       values.push(...subValues);
 
       // Inject a function into the object to get its property values
       value.get = function () {
-        return getAllPropertyValues(this);
+        return tidyUp(this);
       };
     } else {
       // Convert the value to a string and push it to the array
