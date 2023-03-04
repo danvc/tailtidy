@@ -1,24 +1,5 @@
 /**
- *
- * @param {*} obj
- * @param {*} classes
- */
-getClasses = (obj, classes) => {
-  const values = Object.values(obj);
-  for (let i = 0; i < values.length; i++) {
-    const val = values[i];
-    if (typeof val === "object") {
-      getClasses(val, classes);
-    } else if (typeof val === "string") {
-      classes.push(val);
-    } else if (Array.isArray(val)) {
-      classes.concat(val);
-    }
-  }
-};
-
-/**
- * @param {*} structClass Is an object argument where the values
+ * @param {*} structuredClasses Is an object argument where the values
  * will be the TailwindCSS class name. For example:
  * {
  *  display: "grid",
@@ -30,16 +11,28 @@ getClasses = (obj, classes) => {
  *}
  * @returns "grid grid-cols-1 grid-cols-2 grid-cols-4"
  */
-function tidyUp(structClass) {
-  const classes = [];
-  if (typeof structClass === "object") {
-    getClasses(structClass, classes);
-  } else {
-    console.warning(
-      "tidyUp: The argument passed as reference is not an object."
-    );
+function tidyUp(obj) {
+  const values = [];
+
+  for (const prop in obj) {
+    const value = obj[prop];
+
+    if (typeof value === "object") {
+      // Recursively call the function if the value is an object
+      const subValues = getAllPropertyValues(value);
+      values.push(...subValues);
+
+      // Inject a function into the object to get its property values
+      value.get = function () {
+        return getAllPropertyValues(this);
+      };
+    } else {
+      // Convert the value to a string and push it to the array
+      values.push(String(value) + " ");
+    }
   }
-  return classes.join(" ");
+
+  return values.join("");
 }
 
 module.exports = {
