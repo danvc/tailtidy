@@ -19,18 +19,22 @@ function tidyUp(obj) {
       const val = curr[key];
       if (typeof val === "object" && !Array.isArray(val)) {
         val.getClasses = function () {
-          const values = Object.values(this);
-          return values
+          return Object.values(this)
             .map((v) => (typeof v === "object" ? v.getClasses() : v))
+            .filter((v) => typeof v === "string")
             .join(" ");
         };
         stack.push(val);
       }
     });
   }
+  obj.getClasses = function () {
+    return Object.values(this)
+      .map((v) => (typeof v === "object" ? v.getClasses() : v))
+      .filter((v) => typeof v === "string")
+      .join(" ");
+  };
   return obj;
 }
 
-module.exports = {
-  tidyUp,
-};
+module.exports = tidyUp;
