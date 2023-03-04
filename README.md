@@ -50,4 +50,24 @@ The result
 <div class="text-sm bg-red md:text-base md:bg-orange lg:text-lg lg:bg-blue">Test</div>
 ````
 
+You can call the method `getClasses` on all properties that are objects. Given the example above, you could be calling:
+
+````
+classes.title.getClasses();
+````
+which would return:
+````
+text-sm bg-red md:text-base md:bg-orange lg:text-lg lg:bg-blue
+````
+
+````
+classes.title.sm.getClasses();
+````
+which would return:
+````
+text-sm bg-red
+````
+and so on.
+
+
 
