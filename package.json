@@ -1,11 +1,12 @@
 {
   "name": "tailtidy",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "TailwindCSS utility to help organize the classes.",
   "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "types": "tidyUp.d.ts",
   "repository": "danvc/tailtidy",
   "keywords": [
     "tailwindcss",
