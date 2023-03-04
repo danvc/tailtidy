@@ -1,4 +1,10 @@
 # tailtidy
+`TailTidy` is a library that has as intention to help you organize your Tailwind classes in the way you think this should be organized.
+
+When the component start to receive a of conditions where the shape should be changed according a specific condition, like, *"change the text
+color to black when the breakpoint is `xm` but when it has achieved `md`, change the text color to pink"*. That's the idea:
+- It's like styled css, but, using classes.
+
 The idea behind `tidyUp` is that it will help you to organize and visualize better how the classes should be organized
 according each aspect.
 
