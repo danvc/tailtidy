@@ -43,7 +43,7 @@ Use
 
 The result
 ````
-text-sm bg-red md:text-base md:bg-orange lg:text-lg lg:bg-blue
+<div class="text-sm bg-red md:text-base md:bg-orange lg:text-lg lg:bg-blue">Test</div>
 ````
 
 
