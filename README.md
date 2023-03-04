@@ -16,14 +16,17 @@ An organized way to use TailwindCSS classes:
   const classes = tidyUp({
     // component Title
     title: {
+      // well, whant the breakpoint is small, I want to show a red background with the font-size small
       sm: {
         text: "text-sm",
         bg: "bg-red",
       },
+      // but when the breakpoint reach the md size, I want to display the background with the color orange... the font-size will be normal
       md: {
         text: "md:text-base",
         bg: "md:bg-orange",
       },
+      // but when the breakpoint reach lg, ah man, then, we need to rock this world and change the background color to blue and the font large
       lg: {
         text: "lg:text-lg",
         bg: "lg:bg-blue",
