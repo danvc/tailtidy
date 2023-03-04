@@ -12,27 +12,23 @@
  * @returns "grid grid-cols-1 grid-cols-2 grid-cols-4"
  */
 function tidyUp(obj) {
-  const values = [];
-
-  for (const prop in obj) {
-    const value = obj[prop];
-
-    if (typeof value === "object") {
-      // Recursively call the function if the value is an object
-      const subValues = tidyUp(value);
-      values.push(...subValues);
-
-      // Inject a function into the object to get its property values
-      value.get = function () {
-        return tidyUp(this);
-      };
-    } else {
-      // Convert the value to a string and push it to the array
-      values.push(String(value) + " ");
-    }
+  const stack = [obj];
+  while (stack.length > 0) {
+    const curr = stack.pop();
+    Object.keys(curr).forEach((key) => {
+      const val = curr[key];
+      if (typeof val === "object" && !Array.isArray(val)) {
+        val.getClasses = function () {
+          const values = Object.values(this);
+          return values
+            .map((v) => (typeof v === "object" ? v.getClasses() : v))
+            .join(" ");
+        };
+        stack.push(val);
+      }
+    });
   }
-
-  return values.join("");
+  return obj;
 }
 
 module.exports = {

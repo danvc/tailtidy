@@ -1,2 +1,2 @@
-export declare function tidyUp(classStructure: Object): string;
+export declare function tidyUp(classStructure: Object): Object;
 export default tidyUp;
