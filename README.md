@@ -37,6 +37,7 @@ An organized way to use TailwindCSS classes:
   });
 
 ````
+Of course this example is stupid, however, the library is not stupid, mainly when you're dealing with elements that has dozens of classes. Urgh!
 
 Use
 
