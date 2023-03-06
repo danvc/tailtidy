@@ -1,6 +1,6 @@
 {
   "name": "tailtidy",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "TailwindCSS utility to help organize the classes.",
   "main": "./src/index.js",
   "scripts": {
